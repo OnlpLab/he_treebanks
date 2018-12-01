@@ -258,8 +258,9 @@ def make_changes(filepath):
     add changes here:
     make new or get from one of the blocks above.
     """
-    data.at[data['FEATS'].str.contains('HebExistential=True', na=False), 'UPOSTAG'] = 'VERB'
-    data.at[data['FEATS'].str.contains('HebExistential=True', na=False), 'XPOSTAG'] = 'VERB'
+    # data.at[data['FEATS'].str.contains('HebExistential=True', na=False), 'UPOSTAG'] = 'VERB'
+    # data.at[data['FEATS'].str.contains('HebExistential=True', na=False), 'XPOSTAG'] = 'VERB'
+    data.at[(data['LEMMA'].str.contains("\w\"\w.+", na=False)) & (data['UPOSTAG'] == 'PROPN'), 'LEMMA'] = data['FORM']
 
 
     """
@@ -272,7 +273,10 @@ def make_changes(filepath):
 
 def inspect(filepath):
     header = ['INDEX', 'FORM', 'LEMMA', 'UPOSTAG', 'XPOSTAG', 'FEATS', 'HEAD', 'DEPREL', 'DEPS', 'MISC']
-    return pd.read_csv("modified_%s" % filepath, sep='\t', quoting=csv.QUOTE_NONE,  skip_blank_lines=True, names=header)
+    df = pd.read_csv("modified_%s" % filepath, sep='\t', quoting=csv.QUOTE_NONE,  skip_blank_lines=True, names=header)
+    # df.dropna()
+    # print(df[(df['LEMMA'].str.contains("\w\"\w.+", na=False)) & (df['UPOSTAG'] == 'PROPN')])
+    # df.at[(df['LEMMA'].str.contains("\w\"\w.+", na=False)) & (df['UPOSTAG'] == 'PROPN'), df['LEMMA']] = df['FORM']
 
 
 def get_context(dependent):
@@ -294,6 +298,6 @@ def get_series_context(series):
 
 if __name__ == "__main__":
     make_changes(test_treebank)
-    # suit_for_pandas(training_treebank)
-    # data = inspect(test_treebank)
+    # suit_for_pandas(dev_treebank)
+    # data = inspect(training_treebank)
 
