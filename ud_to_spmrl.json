@@ -1,0 +1,98 @@
+{
+  "POS": [
+    {"UPOS": "ADP",
+       "default": "IN",
+       "exceptions": [
+           [["FEATS", "Case=Acc"], "AT"],
+           [["FEATS", "Case=Gen"], "POS"],
+           [["LEMMA", ["ב", "כ", "ל", "מ"]], "PREPOSITION"],
+           [["FEATS", "Case=Acc"], ["LEMMA", ["_את_"]], "DUMMY_AT"]
+       ]},
+    {"UPOS": "ADV",
+       "default": "RB",
+       "exceptions": [
+           [["LEMMA", ["כ"]], "ADVERB"],
+           [["FEATS", "Prefix=Yes"], "P"],
+           [["FEATS", "PronType=Int"], "QW"]
+       ]},
+    {"UPOS": "CCONJ",
+         "default": "CC",
+         "exceptions": [
+             [["LEMMA", ["ו"]], "CONJ"]
+         ]},
+    {"UPOS": "NUM",
+         "default": "CD",
+         "exceptions": [
+             [["FEATS", "Definite=Cons"], "CDT"]
+         ]},
+    {"UPOS": "ADJ",
+         "default": "JJ",
+         "exceptions": [
+             [["FEATS", "Definite=Cons"], "JJT"]
+         ]},
+
+    {"UPOS": "NOUN",
+         "default": "NN",
+         "exceptions": [
+             [["FEATS", "Definite=Cons"], "NNT"]
+         ]},
+
+    {"UPOS": "SCONJ",
+         "default": "REL",
+         "exceptions": [
+             [["FEATS", "Case=Tem"], "TEMP"]
+         ]},
+
+    {"UPOS": "VERB",
+         "default": "VB",
+         "exceptions": [
+             [["FEATS", "HebExistential=True"], "EX"],
+             [["FEATS", "VerbForm=Part"], "BN"],
+             [["FEATS", "VerbForm=Part"], ["FEATS", "Definite=Cons"], "BNT"]
+         ]},
+
+    {"UPOS": "VERB",
+         "default": "VB",
+         "exceptions": [
+             [["FEATS", "HebExistential=True"], "EX"],
+             [["FEATS", "VerbForm=Part"], "BN"],
+             [["FEATS", "VerbForm=Part"], ["FEATS", "Definite=Cons"], "BNT"]
+         ]},
+    {"UPOS": "AUX",
+         "default": "AUX",
+         "exceptions": [
+             [["FEATS", "VerbType=Cop"], "COP"],
+             [["FEATS", "VerbType=Mod"], "MD"],
+             [["FEATS", "VerbType=Cop"], ["FEATS", "VerbForm=Inf"], "COP"]
+         ]},
+    {"UPOS": "DET",
+         "default": "DTT",
+         "exceptions": [
+             [["FEATS", "PronType=Art"], "DEF"]
+         ]},
+    {"UPOS": "PRON",
+         "default": "PRP",
+         "exceptions": [
+             [["FORM", "_"], "S_PRN"],
+             [["FEATS", "PronType=Prs"], ["FEATS", "Reflex=Yes"], "S_PRP"]
+         ]},
+    {"UPOS": "PROPN",
+         "default": "NNP",
+         "exceptions": [
+         ]},
+    {"UPOS": "PUNCT",
+         "default": "yyELPS",
+         "exceptions": [
+             [["FORM", ":"], "yyCLN"],
+             [["FORM", ","], "yyCM"],
+             [["FORM", "-"], "yyDASH"],
+             [["FORM", "."], "yyDOT"],
+             [["FORM", "("], "yyLRB"],
+             [["FORM", ")"], "yyRRB"],
+             [["FORM", ";"], "yySCLN"],
+             [["FORM", "\""], "yyQUOT"],
+             [["FORM", "!"], "yyEXCL"],
+             [["FORM", "?"], "yyQM"]
+         ]}
+  ]
+}
