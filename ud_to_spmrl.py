@@ -1,10 +1,10 @@
 import pandas as pd
 import json
-
+import csv
 
 def create_xpos(row, pos_tags):
     if pd.notna(row["UPOS"]):
-        if row["FEATS"] == "_":
+        if row["UPOS"] == "_":
             return "_"
         else:
             upos = row["UPOS"]
@@ -62,8 +62,8 @@ if __name__ == "__main__":
         pos_tags = conversion_rules["POS"]
         features = conversion_rules["FEATS"]
 
-    print(features)
     conllu["XPOS"] = conllu.apply(lambda x: create_xpos(x, pos_tags), axis=1)
     conllu["FEATS"] = conllu.apply(lambda x: convert_features(x, features), axis=1)
     #
-    conllu.to_csv("./data/new_datasets/academia_final_converted.conllu", sep="\t", index=False, header=False)
+    conllu.to_csv("./data/new_datasets/academia_final_converted.conllu", sep="\t", index=False,
+                  header=False, quoting=csv.QUOTE_NONE, quotechar="", escapechar="\\")

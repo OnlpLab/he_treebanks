@@ -1,7 +1,6 @@
 {
   "POS": {
-    "ADP":
-    {
+    "ADP": {
       "default": "IN",
       "exceptions": [
            [["FEATS", "Case=Acc"], "AT"],
@@ -73,7 +72,7 @@
          "exceptions": [
          ]},
      "PUNCT": {
-         "default": "yyELPS",
+         "default": "yySYM",
          "exceptions": [
              [["FORM", ":"], "yyCLN"],
              [["FORM", ","], "yyCM"],
@@ -84,10 +83,16 @@
              [["FORM", ";"], "yySCLN"],
              [["FORM", "\""], "yyQUOT"],
              [["FORM", "!"], "yyEXCL"],
-             [["FORM", "?"], "yyQM"]
+             [["FORM", "?"], "yyQM"],
+             [["FORM", "..."], "yyELPS"]
+
          ]},
     "SYM": {
       "default": "yySYM",
+      "exceptions": []
+    },
+    "INTJ": {
+      "default": "INTJ",
       "exceptions": []
     }
   },
