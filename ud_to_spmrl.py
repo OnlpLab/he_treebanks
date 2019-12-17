@@ -2,21 +2,13 @@ import pandas as pd
 import json
 
 
-conll_path = "./data/new_datasets/academia_final.conllu"
-conllu = pd.read_csv(conll_path, sep="\t", comment="#")
-
-
-with open("./ud_to_spmrl.json", "r") as conv:
-    conversion_rules = json.load(conv)
-    pos_tags = conversion_rules["POS"]
-    print(pos_tags)
-
-
-
-def create_xpos(row):
-    xpos = "UNK"
-    for tag in pos_tags:
-        if row["UPOS"] == tag["UPOS"]:
+def create_xpos(row, pos_tags):
+    if pd.notna(row["UPOS"]):
+        if row["FEATS"] == "_":
+            return "_"
+        else:
+            upos = row["UPOS"]
+            tag = pos_tags[upos]
             xpos = tag["default"]
             if tag["exceptions"]:
                 for exception in tag["exceptions"]:
@@ -33,12 +25,45 @@ def create_xpos(row):
                                 condition_met += 1
                     if condition_met == len(exception):
                         xpos = exception[-1]
-    return xpos
+            return xpos
+    else:
+        return None
 
 
-conllu["new_col"] = conllu.apply(lambda x: create_xpos(x), axis=1)
-conllu.to_csv("./data/new_datasets/academia_final_converted.conllu", sep="\t")
+def convert_features(row, features):
+    converted_features = []
+    if pd.notna(row["FEATS"]):
+        if row["FEATS"] == "_":
+            return "_"
+        else:
+            for row_feature in row["FEATS"].split("|"):
+                key = row_feature.split("=")[0]
+                value = row_feature.split("=")[1]
+                if key in features:
+                    new_name = features[key]["spmrl_name"]
+                    if features[key]["multiple_values"] == 0:
+                        if value in features[key]["single_values"]:
+                            new_value = features[key]["single_values"][value]
+                            converted_features.append(f"{new_name}={new_value}")
+                    else:
+                        for ud, spmrl in features[key]["single_values"].items():
+                            converted_features.append(f"{new_name}={spmrl}")
+        return "|".join(converted_features)
 
 
 
 
+if __name__ == "__main__":
+    conll_path = "./data/new_datasets/academia_sep.conllu"
+    conllu = pd.read_csv(conll_path, sep="\t", comment="#", skip_blank_lines=False)
+
+    with open("./ud_to_spmrl.json", "r") as conv:
+        conversion_rules = json.load(conv)
+        pos_tags = conversion_rules["POS"]
+        features = conversion_rules["FEATS"]
+
+    print(features)
+    conllu["XPOS"] = conllu.apply(lambda x: create_xpos(x, pos_tags), axis=1)
+    conllu["FEATS"] = conllu.apply(lambda x: convert_features(x, features), axis=1)
+    #
+    conllu.to_csv("./data/new_datasets/academia_final_converted.conllu", sep="\t", index=False, header=False)

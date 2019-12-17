@@ -1,86 +1,78 @@
 {
-  "POS": [
-    {"UPOS": "ADP",
-       "default": "IN",
-       "exceptions": [
+  "POS": {
+    "ADP":
+    {
+      "default": "IN",
+      "exceptions": [
            [["FEATS", "Case=Acc"], "AT"],
            [["FEATS", "Case=Gen"], "POS"],
            [["LEMMA", ["ב", "כ", "ל", "מ"]], "PREPOSITION"],
            [["FEATS", "Case=Acc"], ["LEMMA", ["_את_"]], "DUMMY_AT"]
        ]},
-    {"UPOS": "ADV",
+     "ADV": {
        "default": "RB",
        "exceptions": [
            [["LEMMA", ["כ"]], "ADVERB"],
            [["FEATS", "Prefix=Yes"], "P"],
            [["FEATS", "PronType=Int"], "QW"]
        ]},
-    {"UPOS": "CCONJ",
+     "CCONJ": {
          "default": "CC",
          "exceptions": [
              [["LEMMA", ["ו"]], "CONJ"]
          ]},
-    {"UPOS": "NUM",
+     "NUM": {
          "default": "CD",
          "exceptions": [
              [["FEATS", "Definite=Cons"], "CDT"]
          ]},
-    {"UPOS": "ADJ",
+     "ADJ": {
          "default": "JJ",
          "exceptions": [
              [["FEATS", "Definite=Cons"], "JJT"]
          ]},
 
-    {"UPOS": "NOUN",
+     "NOUN": {
          "default": "NN",
          "exceptions": [
              [["FEATS", "Definite=Cons"], "NNT"]
          ]},
 
-    {"UPOS": "SCONJ",
+     "SCONJ": {
          "default": "REL",
          "exceptions": [
              [["FEATS", "Case=Tem"], "TEMP"]
          ]},
-
-    {"UPOS": "VERB",
+     "VERB": {
          "default": "VB",
          "exceptions": [
              [["FEATS", "HebExistential=True"], "EX"],
              [["FEATS", "VerbForm=Part"], "BN"],
              [["FEATS", "VerbForm=Part"], ["FEATS", "Definite=Cons"], "BNT"]
          ]},
-
-    {"UPOS": "VERB",
-         "default": "VB",
-         "exceptions": [
-             [["FEATS", "HebExistential=True"], "EX"],
-             [["FEATS", "VerbForm=Part"], "BN"],
-             [["FEATS", "VerbForm=Part"], ["FEATS", "Definite=Cons"], "BNT"]
-         ]},
-    {"UPOS": "AUX",
+     "AUX": {
          "default": "AUX",
          "exceptions": [
              [["FEATS", "VerbType=Cop"], "COP"],
              [["FEATS", "VerbType=Mod"], "MD"],
              [["FEATS", "VerbType=Cop"], ["FEATS", "VerbForm=Inf"], "COP"]
          ]},
-    {"UPOS": "DET",
+     "DET": {
          "default": "DTT",
          "exceptions": [
              [["FEATS", "PronType=Art"], "DEF"]
          ]},
-    {"UPOS": "PRON",
+     "PRON": {
          "default": "PRP",
          "exceptions": [
              [["FORM", "_"], "S_PRN"],
              [["FEATS", "PronType=Prs"], ["FEATS", "Reflex=Yes"], "S_PRP"]
          ]},
-    {"UPOS": "PROPN",
+     "PROPN": {
          "default": "NNP",
          "exceptions": [
          ]},
-    {"UPOS": "PUNCT",
+     "PUNCT": {
          "default": "yyELPS",
          "exceptions": [
              [["FORM", ":"], "yyCLN"],
@@ -93,6 +85,63 @@
              [["FORM", "\""], "yyQUOT"],
              [["FORM", "!"], "yyEXCL"],
              [["FORM", "?"], "yyQM"]
-         ]}
-  ]
+         ]},
+    "SYM": {
+      "default": "yySYM",
+      "exceptions": []
+    }
+  },
+  "FEATS": {
+    "Gender": {
+      "spmrl_name": "gen",
+      "single_values": {
+        "Fem": "F",
+        "Masc": "M"
+      },
+    "multiple_values": 1
+    },
+    "Number": {
+      "spmrl_name": "num",
+      "single_values": {
+        "Sing": "S",
+        "Plur": "P",
+        "Dual": "D",
+        "Ptan": "P"
+      },
+    "multiple_values": 0
+    },
+    "Person": {
+      "spmrl_name": "per",
+      "single_values": {
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "1,2,3": "A"
+      },
+    "multiple_values": 0
+    },
+    "Tense": {
+      "spmrl_name": "tense",
+      "single_values": {
+        "Past": "PAST",
+        "Fut": "FUTURE"
+      },
+    "multiple_values": 0
+    },
+    "VerbForm": {
+      "spmrl_name": "tense",
+      "single_values": {
+        "Part": "BEINONI",
+        "Inf": "TOINFINITIVE"
+      },
+    "multiple_values": 0
+    },
+    "Mood": {
+      "spmrl_name": "tense",
+      "single_values": {
+        "Imp": "IMPERATIVE"
+      },
+    "multiple_values": 0
+    }
+  }
 }
