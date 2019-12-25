@@ -72,7 +72,7 @@
          "exceptions": [
          ]},
      "PUNCT": {
-         "default": "yySYM",
+         "default": "yyUNK",
          "exceptions": [
              [["FORM", ":"], "yyCLN"],
              [["FORM", ","], "yyCM"],
@@ -94,6 +94,10 @@
     "INTJ": {
       "default": "INTJ",
       "exceptions": []
+    },
+    "X": {
+      "default": "ZBL",
+      "exceptions": []
     }
   },
   "FEATS": {
@@ -103,7 +107,7 @@
         "Fem": "F",
         "Masc": "M"
       },
-    "multiple_values": 1
+    "multiple_values": {"Fem,Masc": "gen=F|gen=M"}
     },
     "Number": {
       "spmrl_name": "num",
@@ -112,8 +116,7 @@
         "Plur": "P",
         "Dual": "D",
         "Ptan": "P"
-      },
-    "multiple_values": 0
+      }
     },
     "Person": {
       "spmrl_name": "per",
@@ -122,31 +125,27 @@
         "2": "2",
         "3": "3",
         "1,2,3": "A"
-      },
-    "multiple_values": 0
+      }
     },
     "Tense": {
       "spmrl_name": "tense",
       "single_values": {
         "Past": "PAST",
         "Fut": "FUTURE"
-      },
-    "multiple_values": 0
+      }
     },
     "VerbForm": {
       "spmrl_name": "tense",
       "single_values": {
         "Part": "BEINONI",
         "Inf": "TOINFINITIVE"
-      },
-    "multiple_values": 0
+      }
     },
     "Mood": {
       "spmrl_name": "tense",
       "single_values": {
         "Imp": "IMPERATIVE"
-      },
-    "multiple_values": 0
+      }
     }
   }
 }

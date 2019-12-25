@@ -1,6 +1,58 @@
 import pandas as pd
 import json
 import csv
+import re
+import numpy as np
+from tqdm import tqdm
+
+def add_token_numbers_to_file(filepath):
+    """based on yochai's code"""
+    # original format + original_token column
+    columns = ['ID', 'FORM', 'LEMMA', 'UPOS', 'XPOS', 'FEATS', 'TOKEN_NUMBER']
+
+    current_token = 0
+    num_of_broken_tokens = 0
+    tokenized_filepath = filepath.replace('.conllu', '_tokenized.conllu')
+    with open(filepath, 'r') as conll_file, open(tokenized_filepath, 'wt') as tokenized_file:
+        # create similiar tsv format with the new columns
+        tokenized_file.write('\t'.join(columns) + '\n')
+        # skip header of original file
+        conll_file.readline()
+        # iterate over the original file, keep comments and blanks and update original token accordingly
+        for original_line in conll_file:
+            # reset the original token (to one) when reaching new sentence (newline)
+            if original_line == '\n':
+                current_token = 0
+            # write comments and newlines as is in the new file
+            if not original_line[0].isdigit():
+                tokenized_line = original_line.strip()
+            else:
+                tok_id = original_line.split('\t')[0]
+                # assign original token (tokenized if one morpheme, splitted if multiple morphemes)
+                # handle broken tokens
+                if num_of_broken_tokens > 0:
+                    num_of_broken_tokens -= 1
+                    tokenized_line = original_line.strip() + '\t' + str(current_token)
+
+                else:
+                    # handle single-morpheme tokens (denote with _ instead of original token)
+                    if not '-' in original_line:
+                        current_token += 1
+                        tokenized_line = original_line.strip() + '\t' + str(current_token)
+
+                    # handle multi-morpheme tokens (denote with _ instead of original token)
+                    elif '-' in tok_id:
+                        try:
+                            beg, end = tok_id.split('-')
+                        except ValueError:
+                            raise Exception(tok_id)
+                        num_of_broken_tokens = int(end) - int(beg) + 1
+
+                        current_token += 1
+                        tokenized_line = original_line.strip() + '\t' + '_'
+            tokenized_file.write(tokenized_line + '\n')
+    return tokenized_filepath
+
 
 def create_xpos(row, pos_tags):
     if pd.notna(row["UPOS"]):
@@ -38,32 +90,83 @@ def convert_features(row, features):
         else:
             for row_feature in row["FEATS"].split("|"):
                 key = row_feature.split("=")[0]
-                value = row_feature.split("=")[1]
+                try:
+                    value = row_feature.split("=")[1]
+                except IndexError:
+                    raise Exception([row["ID"], row["FEATS"], row["XPOS"]])
                 if key in features:
                     new_name = features[key]["spmrl_name"]
-                    if features[key]["multiple_values"] == 0:
-                        if value in features[key]["single_values"]:
-                            new_value = features[key]["single_values"][value]
-                            converted_features.append(f"{new_name}={new_value}")
+                    if value in features[key]["single_values"]:
+                        new_value = features[key]["single_values"][value]
+                        converted_features.append(f"{new_name}={new_value}")
+                    elif "multiple_values" in features[key].keys():
+                        converted_features.append(features[key]["multiple_values"][value])
                     else:
-                        for ud, spmrl in features[key]["single_values"].items():
-                            converted_features.append(f"{new_name}={spmrl}")
+                        print("The feature {} does not have a value {}. If this is not a typo, "
+                              "please update ud_to_spmrl.json".format(features[key]["spmrl_name"], value))
         return "|".join(converted_features)
 
 
+def create_index(num):
+    try:
+        return int(num)-1
+    except ValueError:
+        return ""
 
+def output_to_file(df, output_fp):
+    prev_token_num = 0
+    with open(output_fp, "w") as f:
+        for i, row in df.iterrows():
+            try:
+                if not str(row["index"]).isdigit():
+                    f.write("\n")
+                else:
+                    output = "\t".join([str(k) for k in row]) + "\n"
+                    if "nan" not in output:
+                        prev_token_num = row["TOKEN_NUMBER"]
+                        f.write(output)
+                    else:
+                        output = "{}\t{}\t\"\t\"\tyyQUOT\tyyQUOT\t_\t{}\n".format(row["index"], row["ID"], (int(prev_token_num)+1))
+                        f.write(output)
+            except:
+                raise Exception(row["index"])
+        f.write("\n")
 
-if __name__ == "__main__":
-    conll_path = "./data/new_datasets/academia_sep.conllu"
-    conllu = pd.read_csv(conll_path, sep="\t", comment="#", skip_blank_lines=False)
-
-    with open("./ud_to_spmrl.json", "r") as conv:
+def main(df, conversion_json, include_upos=False):
+    with open(conversion_json, "r") as conv:
         conversion_rules = json.load(conv)
         pos_tags = conversion_rules["POS"]
         features = conversion_rules["FEATS"]
 
-    conllu["XPOS"] = conllu.apply(lambda x: create_xpos(x, pos_tags), axis=1)
-    conllu["FEATS"] = conllu.apply(lambda x: convert_features(x, features), axis=1)
-    #
-    conllu.to_csv("./data/new_datasets/academia_final_converted.conllu", sep="\t", index=False,
-                  header=False, quoting=csv.QUOTE_NONE, quotechar="", escapechar="\\")
+    #add token numbers
+    # df = set_tokens(df)
+    # change part of speech
+    df["XPOS"] = df.apply(lambda x: create_xpos(x, pos_tags), axis=1)
+    # change features
+    df["FEATS"] = df.apply(lambda x: convert_features(x, features), axis=1)
+    # get rid of token information lines
+    df = df[~df['ID'].str.contains("\d+-\d+", na=False)]
+    # adding index column
+    df['index'] = df["ID"].apply(create_index)
+    # remove underscores
+    df["FORM"] = df["FORM"].apply(lambda x: x.replace("_", "") if type(x) == str else x)
+    if not include_upos:
+        # replace upos col by xpos
+        df = df[["index", "ID", "FORM", "LEMMA", "XPOS", "XPOS", "FEATS", "TOKEN_NUMBER"]]
+    return df
+
+
+if __name__ == "__main__":
+    conll_path = "./data/new_datasets/academia_sep_1.conllu"
+    conversion_json_filepath = "./ud_to_spmrl.json"
+    conllu_for_yap = conll_path.replace(".conllu", "_converted.conllu")
+
+    tokenized_filepath = add_token_numbers_to_file(conll_path)
+    # tokenized = create_tokenized(conll_path)
+
+    conllu = pd.read_csv(tokenized_filepath, sep="\t", comment="#", skip_blank_lines=False)
+
+    conllu = main(conllu, conversion_json_filepath)
+    output_to_file(conllu, conllu_for_yap)
+    # conllu.to_csv(conllu_for_yap, sep="\t", index=False,
+    #               header=False, quoting=csv.QUOTE_NONE, escapechar="\\")
