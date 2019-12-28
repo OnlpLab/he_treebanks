@@ -74,18 +74,23 @@
      "PUNCT": {
          "default": "yyUNK",
          "exceptions": [
-             [["FORM", ":"], "yyCLN"],
-             [["FORM", ","], "yyCM"],
-             [["FORM", "-"], "yyDASH"],
-             [["FORM", "."], "yyDOT"],
-             [["FORM", "("], "yyLRB"],
-             [["FORM", ")"], "yyRRB"],
-             [["FORM", ";"], "yySCLN"],
-             [["FORM", "\""], "yyQUOT"],
-             [["FORM", "!"], "yyEXCL"],
-             [["FORM", "?"], "yyQM"],
-             [["FORM", "..."], "yyELPS"]
-
+           [["FORM", ":"], "yyCLN"],
+           [["FORM", ","], "yyCM"],
+           [["FORM", "-"], "yyDASH"],
+           [["FORM", "."], "yyDOT"],
+           [["FORM", "("], "yyLRB"],
+           [["FORM", ")"], "yyRRB"],
+           [["FORM", ";"], "yySCLN"],
+           [["FORM", "\""], "yyQUOT"],
+           [["FORM", "'"], "yyQUOT"],
+           [["FORM", "!"], "yyEXCL"],
+           [["FORM", "?"], "yyQM"],
+           [["FORM", "..."], "yyELPS"],
+           [["FORM", "\\"], "yySLASH"],
+           [["FORM", "/"], "yySLASH"],
+           [["FORM", "–"], "yyDASH"],
+           [["FORM", "-"], "yyDASH"],
+           [["FORM", "*"], "yySTAR"]
          ]},
     "SYM": {
       "default": "yySYM",

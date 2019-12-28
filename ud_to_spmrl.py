@@ -4,15 +4,16 @@ import csv
 import re
 import numpy as np
 from tqdm import tqdm
+import argparse
 
-def add_token_numbers_to_file(filepath):
+
+def add_token_numbers_to_file(filepath, tokenized_filepath):
     """based on yochai's code"""
     # original format + original_token column
     columns = ['ID', 'FORM', 'LEMMA', 'UPOS', 'XPOS', 'FEATS', 'TOKEN_NUMBER']
 
     current_token = 0
     num_of_broken_tokens = 0
-    tokenized_filepath = filepath.replace('.conllu', '_tokenized.conllu')
     with open(filepath, 'r') as conll_file, open(tokenized_filepath, 'wt') as tokenized_file:
         # create similiar tsv format with the new columns
         tokenized_file.write('\t'.join(columns) + '\n')
@@ -93,7 +94,8 @@ def convert_features(row, features):
                 try:
                     value = row_feature.split("=")[1]
                 except IndexError:
-                    raise Exception([row["ID"], row["FEATS"], row["XPOS"]])
+                    pass
+                    # raise Exception([row["ID"], row["FEATS"], row["XPOS"]])
                 if key in features:
                     new_name = features[key]["spmrl_name"]
                     if value in features[key]["single_values"]:
@@ -157,16 +159,21 @@ def main(df, conversion_json, include_upos=False):
 
 
 if __name__ == "__main__":
-    conll_path = "./data/new_datasets/academia_sep_1.conllu"
-    conversion_json_filepath = "./ud_to_spmrl.json"
-    conllu_for_yap = conll_path.replace(".conllu", "_converted.conllu")
+    parser = argparse.ArgumentParser(description="conversion from UD annotation to SPMRL (YAP readable format).")
 
-    tokenized_filepath = add_token_numbers_to_file(conll_path)
-    # tokenized = create_tokenized(conll_path)
+    parser.add_argument("--ud_filepath", help="Obligatory - path to file with manually tagged dataset (in UD)")
+    parser.add_argument("--conversion_rules", default="./ud_to_spmrl.json", help="path to json file with conversion rules.")
 
+    argv = parser.parse_args()
+
+    # conll_path = "./data/new_datasets/academia_sep_1.conllu"
+    # conversion_rules = "./ud_to_spmrl.json"
+    tokenized_filepath = argv.ud_filepath.replace('.conllu', '_tokenized.conllu')
+    add_token_numbers_to_file(argv.ud_filepath, tokenized_filepath)
     conllu = pd.read_csv(tokenized_filepath, sep="\t", comment="#", skip_blank_lines=False)
 
-    conllu = main(conllu, conversion_json_filepath)
+    conllu = main(conllu, argv.conversion_rules)
+    conllu_for_yap = argv.ud_filepath.replace(".conllu", "_converted.conllu")
     output_to_file(conllu, conllu_for_yap)
     # conllu.to_csv(conllu_for_yap, sep="\t", index=False,
     #               header=False, quoting=csv.QUOTE_NONE, escapechar="\\")
