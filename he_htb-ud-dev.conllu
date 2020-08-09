@@ -74,7 +74,7 @@
 12	טענה	טען	VERB	VERB	Gender=Fem|HebBinyan=PAAL|Number=Sing|Person=3|Root=ט.ע.נ|Tense=Past|Voice=Act	0	root	_	_
 13	כי	כי	SCONJ	SCONJ	_	15	mark	_	_
 14	"	"	PUNCT	PUNCT	_	15	punct	_	SpaceAfter=No
-15	מביאים	הביא	VERB	VERB	Gender=Masc|HebBinyan=HIFIL|Number=Plur|Person=1,2,3|VerbForm=Part|Voice=Act	12	ccomp	_	_
+15	מביאים	הביא	VERB	VERB	Gender=Masc|HebBinyan=HIFIL|Number=Plur|Person=1,2,3|Root=ב.ו.א|VerbForm=Part|Voice=Act	12	ccomp	_	_
 16	עובדים	עובד	NOUN	NOUN	Gender=Masc|Number=Plur	15	obj	_	_
 17	זרים	זר	ADJ	ADJ	Gender=Masc|Number=Plur	16	amod	_	_
 18-19	לישראל	_	_	_	_	_	_	_	_
@@ -2312,7 +2312,7 @@
 73	"	"	PUNCT	PUNCT	_	84	punct	_	SpaceAfter=No
 74-75	המגדל	_	_	_	_	_	_	_	_
 74	ה	ה	SCONJ	SCONJ	_	75	mark	_	_
-75	מגדל	גידל	VERB	VERB	Gender=Masc|HebBinyan=PIEL|Number=Sing|Person=1,2,3|VerbForm=Part|Voice=Act	84	csubj	_	_
+75	מגדל	גידל	VERB	VERB	Gender=Masc|HebBinyan=PIEL|Number=Sing|Person=1,2,3|Root=ג.ד.ל|VerbForm=Part|Voice=Act	84	csubj	_	_
 76	נחש	נחש	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	75	obj	_	_
 77	שפיפון	שפיפון	NOUN	NOUN	Gender=Masc|Number=Sing	76	compound:smixut	_	_
 78-81	בביתו	_	_	_	_	_	_	_	SpaceAfter=No
@@ -2384,7 +2384,7 @@
 7	ה	ה	DET	DET	PronType=Art	8	det:def	_	_
 8	כותרת	כותרת	NOUN	NOUN	Gender=Fem|Number=Sing	5	obl	_	_
 9	"	"	PUNCT	PUNCT	_	10	punct	_	SpaceAfter=No
-10	יחדל	חדל	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=3|Tense=Fut|Voice=Act	8	appos	_	_
+10	יחדל	חדל	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=3|Root=ח.ד.ל|Tense=Fut|Voice=Act	8	appos	_	_
 11	נא	נא	INTJ	INTJ	_	10	discourse	_	_
 12	מילוא	מילוא	NOUN	NOUN	Gender=Masc|Number=Sing	10	nsubj	_	_
 13	להתלבט	התלבט	VERB	VERB	HebBinyan=HITPAEL|Root=ל.ב.ט|VerbForm=Inf	10	xcomp	_	SpaceAfter=No
@@ -2977,7 +2977,7 @@
 8	נשיא	נשיא	NOUN	NOUN	Gender=Masc|Number=Sing	6	nsubj	_	_
 9	,	,	PUNCT	PUNCT	_	6	punct	_	_
 10	"	"	PUNCT	PUNCT	_	11	punct	_	SpaceAfter=No
-11	מדובר	דובר	VERB	VERB	Gender=Masc|HebBinyan=PUAL|HebSource=ConvUncertainHead|Number=Sing|Person=1,2,3|VerbForm=Part|Voice=Pass	3	dep	_	_
+11	מדובר	דובר	VERB	VERB	Gender=Masc|HebBinyan=PUAL|HebSource=ConvUncertainHead|Number=Sing|Person=1,2,3|Root=ד.ב.ר|VerbForm=Part|Voice=Pass	3	dep	_	_
 12	פה	פה	ADV	ADV	_	11	advmod	_	_
 13-14	בתוקפנות	_	_	_	_	_	_	_	_
 13	ב	ב	ADP	ADP	_	14	case	_	_
@@ -3371,7 +3371,7 @@
 17	מלים	מילה	NOUN	NOUN	Gender=Fem|Number=Plur	15	nsubj	_	_
 18	:	:	PUNCT	PUNCT	_	20	punct	_	_
 19	"	"	PUNCT	PUNCT	_	20	punct	_	SpaceAfter=No
-20	קרא	קרא	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Mood=Imp|Number=Sing|Person=2|Voice=Act	17	appos	_	_
+20	קרא	קרא	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Mood=Imp|Number=Sing|Person=2|Root=ק.ר.א|Voice=Act	17	appos	_	_
 21	את	את	ADP	ADP	Case=Acc	22	case:acc	_	_
 22	שפתיי	שפתיי	NOUN	NOUN	_	20	obj	_	SpaceAfter=No
 23	,	,	PUNCT	PUNCT	_	20	punct	_	_
@@ -3397,7 +3397,7 @@
 # sent_id = 94
 # text = "קרא את שפתיי..." היא פאראפראזה על סיסמת הבחירות הכוזבת של הנשיא מ8891, "קראו את שפתיי לא יהיו מסים חדשים".
 1	"	"	PUNCT	PUNCT	_	2	punct	_	SpaceAfter=No
-2	קרא	קרא	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Mood=Imp|Number=Sing|Person=2|Voice=Act	8	nsubj:cop	_	_
+2	קרא	קרא	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Mood=Imp|Number=Sing|Person=2|Root=ק.ר.א|Voice=Act	8	nsubj:cop	_	_
 3	את	את	ADP	ADP	Case=Acc	4	case:acc	_	_
 4	שפתיי	שפתיי	NOUN	NOUN	_	2	obj	_	SpaceAfter=No
 5	...	...	PUNCT	PUNCT	_	2	punct	_	SpaceAfter=No
@@ -3421,7 +3421,7 @@
 19	8891	8891	NUM	NUM	_	10	nmod	_	_
 20	,	,	PUNCT	PUNCT	_	10	punct	_	_
 21	"	"	PUNCT	PUNCT	_	22	punct	_	SpaceAfter=No
-22	קראו	קרא	VERB	VERB	Gender=Fem,Masc|HebBinyan=PAAL|Mood=Imp|Number=Plur|Person=2|Voice=Act	10	appos	_	_
+22	קראו	קרא	VERB	VERB	Gender=Fem,Masc|HebBinyan=PAAL|Mood=Imp|Number=Plur|Person=2|Root=ק.ר.א|Voice=Act	10	appos	_	_
 23	את	את	ADP	ADP	Case=Acc	24	case:acc	_	_
 24	שפתיי	שפתיי	NOUN	NOUN	_	22	obj	_	_
 25	לא	לא	ADV	ADV	Polarity=Neg	26	advmod	_	_
@@ -5824,7 +5824,7 @@
 12	מחקר	מחקר	NOUN	NOUN	Gender=Masc|Number=Sing	11	compound:smixut	_	SpaceAfter=No
 13	,	,	PUNCT	PUNCT	_	11	punct	_	_
 14	(	(	PUNCT	PUNCT	_	16	punct	_	SpaceAfter=No
-15	כולל	כלל	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=1,2,3|VerbForm=Part|Voice=Act	16	case	_	_
+15	כולל	כלל	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=1,2,3|Root=כ.ל.ל|VerbForm=Part|Voice=Act	16	case	_	_
 16	צוותות	צוות	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Plur	11	appos	_	_
 17	חשיבה	חשיבה	NOUN	NOUN	Gender=Fem|Number=Sing	16	compound:smixut	_	SpaceAfter=No
 18	)	)	PUNCT	PUNCT	_	16	punct	_	SpaceAfter=No
@@ -8213,7 +8213,7 @@
 25	,	,	PUNCT	PUNCT	_	18	punct	_	_
 26	כדי	כדי	ADP	ADP	_	28	case	_	_
 27	"	"	PUNCT	PUNCT	_	28	punct	_	SpaceAfter=No
-28	לשרטט	שרטט	VERB	VERB	HebBinyan=PIEL|VerbForm=Inf|Voice=Act	18	advcl	_	_
+28	לשרטט	שרטט	VERB	VERB	HebBinyan=PIEL|Root=ש.ר.ט.ט|VerbForm=Inf|Voice=Act	18	advcl	_	_
 29	את	את	ADP	ADP	Case=Acc	30	case:acc	_	_
 30	מסלול	מסלול	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	28	obj	_	_
 31-32	המורשת	_	_	_	_	_	_	_	_
@@ -9924,7 +9924,7 @@
 5	אמר	אמר	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=3|Root=א.מ.ר|Tense=Past|Voice=Act	8	parataxis	_	SpaceAfter=No
 6	,	,	PUNCT	PUNCT	_	5	punct	_	_
 7	"	"	PUNCT	PUNCT	_	8	punct	_	SpaceAfter=No
-8	מתרעמים	התרעם	VERB	VERB	Gender=Masc|HebBinyan=HITPAEL|Number=Plur|Person=1,2,3|VerbForm=Part	0	root	_	_
+8	מתרעמים	התרעם	VERB	VERB	Gender=Masc|HebBinyan=HITPAEL|Number=Plur|Person=1,2,3|Root=ר.ע.מ|VerbForm=Part	0	root	_	_
 9	על	על	ADP	ADP	_	10	case	_	_
 10	עצם	עצם	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Sing	8	obl	_	_
 11-12	השאלה	_	_	_	_	_	_	_	_
@@ -15124,7 +15124,7 @@
 25	"	"	PUNCT	PUNCT	_	21	punct	_	SpaceAfter=No
 26	,	,	PUNCT	PUNCT	_	14	punct	_	_
 27	"	"	PUNCT	PUNCT	_	28	punct	_	SpaceAfter=No
-28	רוצים	רצה	VERB	VERB	Gender=Masc|HebBinyan=PAAL|HebSource=ConvUncertainHead|Number=Plur|Person=1,2,3|VerbForm=Part|Voice=Act	14	dep	_	_
+28	רוצים	רצה	VERB	VERB	Gender=Masc|HebBinyan=PAAL|HebSource=ConvUncertainHead|Number=Plur|Person=1,2,3|Root=ר.צ.י|VerbForm=Part|Voice=Act	14	dep	_	_
 29	נקמה	נקמה	NOUN	NOUN	Gender=Fem|Number=Sing	28	obj	_	SpaceAfter=No
 30	"	"	PUNCT	PUNCT	_	28	punct	_	SpaceAfter=No
 31	.	.	PUNCT	PUNCT	_	14	punct	_	_

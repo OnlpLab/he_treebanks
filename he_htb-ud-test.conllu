@@ -4767,7 +4767,7 @@
 9	ה	ה	DET	DET	PronType=Art	10	det:def	_	_
 10	נדון	נדון	VERB	VERB	Gender=Masc|HebBinyan=NIFAL|Number=Sing|Person=1,2,3|Root=ד.ו.נ|VerbForm=Part|Voice=Mid	8	amod	_	_
 11	"	"	PUNCT	PUNCT	_	12	punct	_	SpaceAfter=No
-12	מדובר	דובר	VERB	VERB	Gender=Masc|HebBinyan=PUAL|Number=Sing|Person=1,2,3|VerbForm=Part|Voice=Pass	3	ccomp	_	_
+12	מדובר	דובר	VERB	VERB	Gender=Masc|HebBinyan=PUAL|Number=Sing|Person=1,2,3|Root=ד.ב.ר|VerbForm=Part|Voice=Pass	3	ccomp	_	_
 13-14	בתובענה	_	_	_	_	_	_	_	_
 13	ב	ב	ADP	ADP	_	14	case	_	_
 14	תובענה	תובענה	NOUN	NOUN	Gender=Fem|Number=Sing	12	obl	_	_
@@ -9233,7 +9233,7 @@
 23	"	"	PUNCT	PUNCT	_	25	punct	_	SpaceAfter=No
 24-25	משראה	_	_	_	_	_	_	_	SpaceAfter=No
 24	מש	מש	SCONJ	SCONJ	Case=Tem	25	mark	_	_
-25	ראה	ראה	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=3|Tense=Past|Voice=Act	15	advcl	_	_
+25	ראה	ראה	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=3|Root=ר.א.י|Tense=Past|Voice=Act	15	advcl	_	_
 26	"	"	PUNCT	PUNCT	_	25	punct	_	_
 27-28	שיש	_	_	_	_	_	_	_	_
 27	ש	ש	SCONJ	SCONJ	_	28	mark	_	_
@@ -10159,7 +10159,7 @@
 12	(	(	PUNCT	PUNCT	_	14	punct	_	SpaceAfter=No
 13-14	שהחל	_	_	_	_	_	_	_	_
 13	ש	ש	SCONJ	SCONJ	_	14	mark	_	_
-14	החל	החל	VERB	VERB	Gender=Masc|HebBinyan=HIFIL|Number=Sing|Person=3|Tense=Past|Voice=Act	10	appos	_	_
+14	החל	החל	VERB	VERB	Gender=Masc|HebBinyan=HIFIL|Number=Sing|Person=3|Root=ח.ל.ל|Tense=Past|Voice=Act	10	appos	_	_
 15	להוציא	הוציא	VERB	VERB	HebBinyan=HIFIL|Root=י.צ.א|VerbForm=Inf|Voice=Act	14	xcomp	_	_
 16-18	לאור	_	_	_	_	_	_	_	_
 16	ל	ל	ADP	ADP	_	18	case	_	_
