@@ -10300,7 +10300,7 @@
 1	ב	ב	ADP	ADP	_	3	case	_	_
 2	ה_	ה	DET	DET	PronType=Art	3	det:def	_	_
 3	המשך	המשך	NOUN	NOUN	Gender=Masc|Number=Sing	4	obl	_	_
-4	ישנה	_	VERB	VERB	Gender=Fem|HebBinyan=_|Number=Sing|Person=3|Root=_|Tense=Past	0	root	_	_
+4	ישנה	_	VERB	VERB	Gender=Fem|Number=Sing|Person=3|Tense=Past	0	root	_	_
 5	אנציקלופדיה	אנציקלופדיה	NOUN	NOUN	Gender=Fem|Number=Sing	4	nsubj	_	_
 6	זעירה	זעיר	ADJ	ADJ	Gender=Fem|Number=Sing	5	amod	_	_
 7-8	המפרטת	_	_	_	_	_	_	_	_
@@ -11626,7 +11626,7 @@
 54	ה	ה	DET	DET	PronType=Art	55	det:def	_	_
 55	מקוריות	מקורי	ADJ	ADJ	Gender=Fem|Number=Plur	50	conj	_	_
 56	מבני	מבנה	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Plur	48	nsubj	_	_
-57	צבור	צבר	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=1,2,3|Root=_|VerbForm=Part|Voice=Act	56	compound:smixut	_	SpaceAfter=No
+57	צבור	צבר	VERB	VERB	Gender=Masc|HebBinyan=PAAL|Number=Sing|Person=1,2,3|VerbForm=Part|Voice=Act	56	compound:smixut	_	SpaceAfter=No
 58	.	.	PUNCT	PUNCT	_	34	punct	_	_
 
 # sent_id = 6070
@@ -14513,7 +14513,7 @@
 22	סוגי	סוג	NOUN	NOUN	Definite=Cons|Gender=Masc|Number=Plur	18	conj	_	_
 23	הרינג	הרינג	NOUN	NOUN	Gender=Masc|Number=Sing	22	compound:smixut	_	SpaceAfter=No
 24	,	,	PUNCT	PUNCT	_	18	punct	_	_
-25	מתאבנים	התאבן	VERB	VERB	Gender=Masc|HebBinyan=HITPAEL|Number=Plur|Person=1,2,3|Root=_|VerbForm=Part	18	conj	_	_
+25	מתאבנים	התאבן	VERB	VERB	Gender=Masc|HebBinyan=HITPAEL|Number=Plur|Person=1,2,3|VerbForm=Part	18	conj	_	_
 26	קרים	קר	ADJ	ADJ	Gender=Masc|Number=Plur	25	amod	_	_
 27	אחרים	אחר	ADJ	ADJ	Gender=Masc|Number=Plur	25	amod	_	_
 28-29	ותצוגה	_	_	_	_	_	_	_	_
@@ -14865,7 +14865,7 @@
 13	יפו	יפו	PROPN	PROPN	_	9	nmod	_	_
 14	,	,	PUNCT	PUNCT	_	15	punct	_	_
 15	ממונה	מונה	VERB	VERB	Gender=Masc|HebBinyan=PUAL|Number=Sing|Person=1,2,3|Root=מ.נ.י|VerbForm=Part|Voice=Pass	0	root	_	_
-16	כאן	כאן	VERB	VERB	HebBinyan=_|HebSource=ConvUncertainHead|Root=_|VerbForm=Part	15	dep	_	_
+16	כאן	כאן	VERB	VERB	HebSource=ConvUncertainHead|VerbForm=Part	15	dep	_	_
 17	על	על	ADP	ADP	_	19	case	_	_
 18-19	המטבח	_	_	_	_	_	_	_	_
 18	ה	ה	DET	DET	PronType=Art	19	det:def	_	_
@@ -16545,7 +16545,7 @@
 20	קורנית	קורנית	NOUN	NOUN	Gender=Fem|Number=Sing	18	nmod:poss	_	_
 21-22	האופייניים	_	_	_	_	_	_	_	_
 21	ה	ה	DET	DET	PronType=Art	22	mark	_	_
-22	אופייניים	אופייני	VERB	VERB	HebBinyan=_|Root=_|VerbForm=Part	12	acl:relcl	_	_
+22	אופייניים	אופייני	VERB	VERB	VerbForm=Part	12	acl:relcl	_	_
 23-24	בדרך	_	_	_	_	_	_	_	_
 23	ב	ב	ADP	ADP	_	24	case	_	_
 24	דרך	דרך	NOUN	NOUN	Definite=Cons|Gender=Fem|Number=Sing	22	advmod	_	_
