@@ -1,4 +1,4 @@
-*********** 2023-04-09 ***********
+### 2023-04-09
 
 Changes for UD v2.8 
 1. Fixed validation issues with lang-spec relations and features.
@@ -8,7 +8,7 @@ Changes for UD v2.8
 2. Attribute HebSource moved from FEATS to MISC; same for undocumented Xtra=Junk.
 3. HebExistential changed from True to Yes as with other boolean features in UD.
 
-*********** 2018-10-28 ***********
+### 2018-10-28
 
 1. fix instances where the case's form was different from the lemma, e.g. להם --> להם + הם instead of להם --> ל_ + הם
 2. Whereas the present tense existential markers were marked as HebExistential=True in the
@@ -21,15 +21,14 @@ we changed the VerbType=Cop feature into HebExistential=True.
 7. change fixed to advmod where internal structure makes the 'fixed' token come before its head.
 
 
-*********** 2018-07-09 ***********
-# replacing the first relation label with the second one.
+### 2018-07-09
+
 1. Change iobj --> obl for DEPREL
 2. Change acl:inf --> acl for DEPREL
 3. Change det:quant --> det for DEPREL
 4. Change PART --> ADP for UPOSTAG and XPOSTAG
-
-Some occurrences of ze / zo are labeled as amod/PRON and we think they shouldn't. Such are the determiners that appear after the nominal.
-5. Change amod --> det when POS tag is PRON for UPOSTAG and XPOSTAG
+5. Some occurrences of ze / zo are labeled as amod/PRON and we think they shouldn't. 
+Such are the determiners that appear after the nominal.Change amod --> det when POS tag is PRON for UPOSTAG and XPOSTAG
 6. Replacing the feature prefix=yes with the relation compound:affix
 7. changing past/future copulars from aux to cop and their POS to AUX.
 8. Replacing hebrew specific labels with global ones for non-specific phenomena:
@@ -39,8 +38,6 @@ Some occurrences of ze / zo are labeled as amod/PRON and we think they shouldn't
     - Change aux:q --> mark:q for DEPREL
     - Change advmod:phrase --> advmod for DEPREL
     - advmod phrase --> fixed
-
-
 9. wherever the POS tag is INTJ, the label was changed from advmod to discourse
 10. Change predicative complemets from advcl to and advmod xcomp
 11. change dep to advmod when head is advmod:phrase
