@@ -2,9 +2,9 @@
 
 Changes for UD v2.8 
 1. Fixed validation issues with lang-spec relations and features.
-  - Commas are now dependent on the head of the element (subordinate clause, appos) that they introduce.
-  - DEPREL of det:def changed to det + Definite=Def added to FEATS
-  - Hyphens that follow compound:affix depend on the affix rather than the compound head (בין-משרדית).
+    - Commas are now dependent on the head of the element (subordinate clause, appos) that they introduce.
+    - DEPREL of det:def changed to det + Definite=Def added to FEATS
+    - Hyphens that follow compound:affix depend on the affix rather than the compound head (בין-משרדית).
 2. Attribute HebSource moved from FEATS to MISC; same for undocumented Xtra=Junk.
 3. HebExistential changed from True to Yes as with other boolean features in UD.
 
