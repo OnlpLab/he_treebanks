@@ -2,9 +2,9 @@
 
 Changes for UD v2.8 
 1. Fixed validation issues with lang-spec relations and features.
-  a. Commas are now dependent on the head of the element (subordinate clause, appos) that they introduce.
-  b. DEPREL of det:def changed to det + Definite=Def added to FEATS
-  c. Hyphens that follow compound:affix depend on the affix rather than the compound head (בין-משרדית).
+  - Commas are now dependent on the head of the element (subordinate clause, appos) that they introduce.
+  - DEPREL of det:def changed to det + Definite=Def added to FEATS
+  - Hyphens that follow compound:affix depend on the affix rather than the compound head (בין-משרדית).
 2. Attribute HebSource moved from FEATS to MISC; same for undocumented Xtra=Junk.
 3. HebExistential changed from True to Yes as with other boolean features in UD.
 
@@ -33,12 +33,12 @@ Some occurrences of ze / zo are labeled as amod/PRON and we think they shouldn't
 6. Replacing the feature prefix=yes with the relation compound:affix
 7. changing past/future copulars from aux to cop and their POS to AUX.
 8. Replacing hebrew specific labels with global ones for non-specific phenomena:
-    a. Change conj:discourse --> parataxis for DEPREL
-    b. Change obl:tmod --> advmod when POS tag is ADV for UPOSTAG and XPOSTAG
-    c. Change advmod:inf --> acl for DEPREL
-    d. Change aux:q --> mark:q for DEPREL
-    e. Change advmod:phrase --> advmod for DEPREL
-    f. advmod phrase --> fixed
+    - Change conj:discourse --> parataxis for DEPREL
+    - Change obl:tmod --> advmod when POS tag is ADV for UPOSTAG and XPOSTAG
+    - Change advmod:inf --> acl for DEPREL
+    - Change aux:q --> mark:q for DEPREL
+    - Change advmod:phrase --> advmod for DEPREL
+    - advmod phrase --> fixed
 
 
 9. wherever the POS tag is INTJ, the label was changed from advmod to discourse
