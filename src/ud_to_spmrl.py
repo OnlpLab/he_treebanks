@@ -162,12 +162,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="conversion from UD annotation to SPMRL (YAP readable format).")
 
     parser.add_argument("--ud_filepath", help="Obligatory - path to file with manually tagged dataset (in UD)")
-    parser.add_argument("--conversion_rules", default="./ud_to_spmrl.json", help="path to json file with conversion rules.")
+    parser.add_argument("--conversion_rules", default="./data/conversion_schemes/ud_to_spmrl.json",
+                        help="path to json file with conversion rules.")
 
     argv = parser.parse_args()
 
     # conll_path = "./data/new_datasets/academia_sep_1.conllu"
-    # conversion_rules = "./ud_to_spmrl.json"
+    # conversion_rules = "./data/conversion_schemes/ud_to_spmrl.json"
     tokenized_filepath = argv.ud_filepath.replace('.conllu', '_tokenized.conllu')
     add_token_numbers_to_file(argv.ud_filepath, tokenized_filepath)
     conllu = pd.read_csv(tokenized_filepath, sep="\t", comment="#", skip_blank_lines=False)
